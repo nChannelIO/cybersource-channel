@@ -1,0 +1,178 @@
+channelRegistry:
+  name: CyberSource
+  actions:
+    getCustomer:
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    putCustomer:
+      capabilities:
+        insertCustomer: false
+        updateCustomer: false
+        insertCustomerAddress: false
+        updateCustomerAddress: false
+        insertCustomerContact: false
+        updateCustomerContact: false
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    getCustomerAddress:
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    putCustomerAddress:
+      capabilities:
+        insertCustomerAddress: false
+        updateCustomerAddress: false
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    getCustomerContact:
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    putCustomerContact:
+      capabilities:
+        insertCustomerContact: false
+        updateCustomerContact: false
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    getProduct:
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      capabilities:
+        getProductSimple: false
+        getProductVirtualMatrix: false
+        getProductMatrix: false
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    putProduct:
+      capabilities:
+        insertProductSimple: false
+        insertProductMatrix: false
+        updateProductSimple: false
+        updateProductMatrix: false
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    getProductQuantity:
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    putProductQuantity:
+      capabilities:
+        insertProductQuantity: false
+        updateProductQuantity: false
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    getProductPricing:
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    putProductPricing:
+      capabilities:
+        insertProductPricing: false
+        updateProductPricing: false
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    getSalesOrder:
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    putSalesOrder:
+      capabilities:
+        insertSalesOrder: false
+        insertCustomer: false
+        updateCustomer: false
+        insertCustomerAddress: false
+        updateCustomerAddress: false
+        insertCustomerContact: false
+        updateCustomerContact: false
+        updateSalesOrder: false
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    getFulfillment:
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    putFulfillment:
+      capabilities:
+        insertFulfillment: false
+        updateFulfillment: false
+      remoteID: '<NOT SET>'
+      businessReference:
+        - '<NOT SET>'
+      children:
+        - '<NOT SET>'
+      peers:
+        - '<NOT SET>'
+    putPaymentCapture:
+      capabilities:
+        insertPaymentCapture: true
+      remoteID: id
+      businessReference:
+        - businesssReference
+interface: Promise

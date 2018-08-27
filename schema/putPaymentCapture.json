@@ -1,0 +1,15 @@
+{
+  "name": "CyberSource putPaymentCapture",
+  "schemaDef": {
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "putPaymentCapture",
+    "type": "object",
+    "properties": {},
+    "definitions": {}
+  },
+  "tags": [
+    "CyberSource",
+    "PUT",
+    "PAYMENTCAPTURE"
+  ]
+}

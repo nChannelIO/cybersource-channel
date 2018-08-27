@@ -1,0 +1,85 @@
+{
+  "name": "CyberSource",
+  "description": "CyberSource SDK Channel",
+  "channelType": "API",
+  "channelIcon": "",
+  "retailClasses": [],
+  "orderProcessingRoles": ["Sales"],
+  "channelActionRegistries": [
+    {
+      "name": "PUT PAYMENTCAPTURE",
+      "description": "PUT PAYMENTCAPTURE",
+      "channelVerb": "PUT",
+      "channelNoun": "PAYMENT CAPTURE",
+      "configDef": {
+        "configModel": {},
+        "configView": [],
+        "configValues": {}
+      },
+      "documentDef": {
+        "remoteID": "id",
+        "businessReferences": ["businessReference"]
+      }
+    }
+  ],
+  "channelAuthSchema": {
+    "authType": "generic",
+    "configDef": {
+      "configModel": {
+        "type": "object",
+        "properties": {
+          "merchantID": {
+            "type": "string"
+          },
+          "transactionSecurityKey": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "merchantID",
+          "transactionSecurityKey"
+        ]
+      },
+      "configView": [
+        {
+          "title": "Merchant ID *",
+          "key": "merchantID"
+        },
+        {
+          "title": "Transaction Security Key *",
+          "key": "transactionSecurityKey",
+          "type": "password"
+        }
+      ],
+      "configValues": {}
+    }
+  },
+  "channelSettingsSchema": {
+    "configDef": {
+      "configModel": {
+        "type": "object",
+        "properties": {
+          "wsdlUri": {
+            "type": "string"
+          },
+          "merchantReferenceCode": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "wsdlUri",
+          "merchantReferenceCOde"
+        ]
+      },
+      "configView": [
+        {
+          "title": "Merchant Reference Code *",
+          "key": "merchantReferenceCode"
+        }
+      ],
+      "configValues": {
+        "wsdlUri": "https://ics2wstesta.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.149.wsdl"
+      }
+    }
+  }
+}
