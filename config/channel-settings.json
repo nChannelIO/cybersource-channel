@@ -17,8 +17,8 @@
         "configValues": {}
       },
       "documentDef": {
-        "remoteID": "id",
-        "businessReferences": ["businessReference"]
+        "remoteID": "requestID",
+        "businessReferences": ["requestID"]
       }
     }
   ],
