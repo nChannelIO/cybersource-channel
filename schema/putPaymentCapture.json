@@ -53,6 +53,10 @@
         ]
       }
     },
+    "required": [
+      "ccCaptureService",
+      "purchaseTotals"
+    ],
     "definitions": {}
   },
   "tags": [
