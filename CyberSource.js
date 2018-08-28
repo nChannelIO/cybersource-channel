@@ -21,7 +21,7 @@ class CyberSource extends Channel {
   createClient() {
     let wsdlUri = this.channelProfile.channelSettingsValues.wsdlUri;
     let merchantID = this.channelProfile.channelAuthValues.merchantID;
-    let password = this.channelProfile.channelAuthValues.transactionSecurityKey;
+    let transactionSecurityKey = this.channelProfile.channelAuthValues.transactionSecurityKey;
 
     return new Promise((res, rej) => {
       soap.createClient(wsdlUri, (err, client) => {
@@ -32,7 +32,7 @@ class CyberSource extends Channel {
         }
       });
     }).then(client => {
-      client.setSecurity(new soap.WSSecurity(merchantID, password, {hasTimeStamp: false, hasTokenCreated: false}));
+      client.setSecurity(new soap.WSSecurity(merchantID, transactionSecurityKey, {hasTimeStamp: false, hasTokenCreated: false}));
       client.on('request',  request => {
         this.debug(`Soap Body: ${request}`);
       });
@@ -52,9 +52,9 @@ class CyberSource extends Channel {
   runTransaction(doc) {
     return this.createClient().then(client => {
       return client.runTransaction(this.addRequestWrapper(doc)).then(({result, rawResponse, soapHeader}) => {
-        if (result && result.decision === 'ACCEPT') {
+        if (result && result.decision === 'ACCEPT' && result.reasonCode === 100) {
           return {
-            statusCode: 200,
+            statusCode: 201,
             payload: result
           };
         } else {
