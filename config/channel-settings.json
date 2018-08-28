@@ -18,7 +18,7 @@
       },
       "documentDef": {
         "remoteID": "requestID",
-        "businessReferences": ["requestID"]
+        "businessReferences": ["merchantReferenceCode"]
       }
     }
   ],
@@ -61,29 +61,15 @@
         "properties": {
           "wsdlUri": {
             "type": "string"
-          },
-          "requestNamespace": {
-            "type": "string"
-          },
-          "merchantReferenceCode": {
-            "type": "string"
           }
         },
         "required": [
-          "wsdlUri",
-          "requestNamespace",
-          "merchantReferenceCode"
+          "wsdlUri"
         ]
       },
-      "configView": [
-        {
-          "title": "Merchant Reference Code *",
-          "key": "merchantReferenceCode"
-        }
-      ],
+      "configView": [],
       "configValues": {
-        "wsdlUri": "https://ics2wstesta.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.149.wsdl",
-        "requestNamespace": "urn:schemas-cybersource-com:transaction-data-1.149"
+        "wsdlUri": "https://ics2wstesta.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.149.wsdl"
       }
     }
   }

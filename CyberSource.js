@@ -7,14 +7,10 @@ class CyberSource extends Channel {
   constructor(...args) {
     super(...args);
 
-    this.validateChannelProfile()
+    this.validateChannelProfile();
   }
 
   async insertPaymentCapture(flowContext, payload) {
-    //Add the required config-specific fields
-    payload.doc.merchantID = this.channelProfile.channelAuthValues.merchantID;
-    payload.doc.merchantReferenceCode = this.channelProfile.channelSettingsValues.merchantReferenceCode;
-
     return this.runTransaction(payload.doc);
   }
 
@@ -40,18 +36,9 @@ class CyberSource extends Channel {
     });
   }
 
-  addRequestWrapper(doc) {
-    doc.$attributes = {
-        xmlns: this.channelProfile.channelSettingsValues.requestNamespace
-    };
-    return {
-      requestMessage: doc
-    }
-  }
-
   runTransaction(doc) {
     return this.createClient().then(client => {
-      return client.runTransaction(this.addRequestWrapper(doc)).then(({result, rawResponse, soapHeader}) => {
+      return client.runTransaction(doc).then(({result, rawResponse, soapHeader}) => {
         if (result && result.decision === 'ACCEPT' && result.reasonCode === 100) {
           return {
             statusCode: 201,
@@ -91,12 +78,6 @@ class CyberSource extends Channel {
     }
     if (!this.channelProfile.channelSettingsValues.wsdlUri) {
       errors.push("this.channelProfile.channelSettingsValues.wsdlUri was not provided");
-    }
-    if (!this.channelProfile.channelSettingsValues.requestNamespace) {
-      errors.push("this.channelProfile.channelSettingsValues.requestNamespace was not provided");
-    }
-    if (!this.channelProfile.channelSettingsValues.merchantReferenceCode) {
-      errors.push("this.channelProfile.channelSettingsValues.merchantReferenceCode was not provided");
     }
     if (!this.channelProfile.channelAuthValues) {
       errors.push("this.channelProfile.channelAuthValues was not provided");

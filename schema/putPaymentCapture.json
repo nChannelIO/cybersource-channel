@@ -5,6 +5,57 @@
     "title": "putPaymentCapture",
     "type": "object",
     "properties": {
+      "requestMessage": {
+        "$ref": "#/definitions/requestMessage"
+      }
+    },
+    "required": [
+      "requestMessage"
+    ],
+    "definitions": {
+      "requestMessage": {
+        "type": "object",
+        "properties": {
+          "$attributes": {
+            "type": "object",
+            "properties": {
+              "xmlns": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "xmlns"
+            ]
+          },
+          "merchantID": {
+            "type": "string",
+            "maxLength": 30
+          },
+          "merchantReferenceCode": {
+            "type": "string"
+          },
+          "ccCaptureService": {
+            "$ref": "#/definitions/ccCaptureService"
+          },
+          "purchaseTotals": {
+            "$ref": "#/definitions/purchaseTotals"
+          },
+          "item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/item"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "$attributes",
+          "merchantID",
+          "merchantReferenceCode",
+          "ccCaptureService",
+          "purchaseTotals"
+        ]
+      },
       "ccCaptureService": {
         "type": "object",
         "properties": {
@@ -26,22 +77,263 @@
               "run"
             ]
           },
+          "aggregatorID": {
+            "type": "string",
+            "maxLength": 15
+          },
+          "aggregatorName": {
+            "type": "string",
+            "maxLength": 12
+          },
           "authRequestID": {
+            "type": "string",
+            "maxLength": 26
+          },
+          "authRequestToken": {
+            "type": "string",
+            "maxLength": 256
+          },
+          "authType": {
+            "type": "string",
+            "maxLength": 4
+          },
+          "dpdeBillingMonth": {
+            "type": "string",
+            "maxLength": 4
+          },
+          "posData": {
+            "type": "string",
+            "maxLength": 12
+          },
+          "sequence": {
+            "type": "integer"
+          },
+          "totalCount": {
+            "type": "integer"
+          },
+          "transactionID": {
+            "type": "string",
+            "maxLength": 15
+          },
+          "verbalAuthCode": {
+            "type": "string",
+            "maxLength": 6
+          },
+          "reconciliationID": {
+            "type": "string"
+          },
+          "partialPaymentID": {
+            "type": "string"
+          },
+          "purchasingLevel": {
+            "type": "string"
+          },
+          "industryDatatype": {
+            "type": "string"
+          },
+          "merchantReceiptNumber": {
+            "type": "string"
+          },
+          "checksumKey": {
+            "type": "string"
+          },
+          "gratuityAmount": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "integer"
+          },
+          "reconciliationIDAlternate": {
             "type": "string"
           }
         },
         "required": [
           "$attributes",
           "authRequestID"
-        ]
+        ],
+        "additionalProperties": false
       },
       "purchaseTotals": {
         "type": "object",
         "properties": {
+          "additionalAmount0": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "maxLength": 12
+          },
+          "additionalAmount1": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "maxLength": 12
+          },
+          "additionalAmount2": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "maxLength": 12
+          },
+          "additionalAmount3": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "maxLength": 12
+          },
+          "additionalAmount4": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "maxLength": 12
+          },
+          "additionalAmountType0": {
+            "type": "string",
+            "maxLength": 3
+          },
+          "additionalAmountType1": {
+            "type": "string",
+            "maxLength": 3
+          },
+          "additionalAmountType2": {
+            "type": "string",
+            "maxLength": 3
+          },
+          "additionalAmountType3": {
+            "type": "string",
+            "maxLength": 3
+          },
+          "additionalAmountType4": {
+            "type": "string",
+            "maxLength": 3
+          },
           "currency": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 5
+          },
+          "exchangeRate": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "maxLength": 16
+          },
+          "exchangeRateTimeStamp": {
+            "type": "string",
+            "maxLength": 14
+          },
+          "foreignAmount": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "maxLength": 15
+          },
+          "foreignCurrency": {
+            "type": "string",
+            "maxLength": 5
           },
           "grandTotalAmount": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "maxLength": 15
+          },
+          "originalAmount": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "maxLength": 15
+          },
+          "originalCurrency": {
+            "type": "string",
+            "maxLength": 5
+          },
+          "discountAmount": {
+            "type": [
+              "number",
+              "string"
+            ]
+          },
+          "discountAmountSign": {
+            "type": "string"
+          },
+          "discountManagementIndicator": {
+            "type": "string"
+          },
+          "taxAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "dutyAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "dutyAmountSign": {
+            "type": "string"
+          },
+          "freightAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "freightAmountSign": {
+            "type": "string"
+          },
+          "serviceFeeAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "subtotalAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "shippingAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "handlingAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "shippingHandlingAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "shippingDiscountAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "giftWrapAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "insuranceAmount": {
             "type": [
               "string",
               "number"
@@ -50,14 +342,554 @@
         },
         "required": [
           "currency"
-        ]
+        ],
+        "additionalProperties": false
+      },
+      "item": {
+        "type": "object",
+        "properties": {
+          "$attributes": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": [
+                  "string",
+                  "integer"
+                ]
+              }
+            }
+          },
+          "productCode": {
+            "type": "string",
+            "enum": [
+              "adult_content",
+              "coupon",
+              "default",
+              "electronic_good",
+              "electronic_software",
+              "gift_certificate",
+              "handling_only",
+              "service",
+              "shipping_and_handling",
+              "shipping_only",
+              "subscription"
+            ]
+          },
+          "productName": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "productSKU": {
+            "type": "string",
+            "maxLength": 255
+          },
+          "quantity": {
+            "type": [
+              "integer",
+              "string"
+            ],
+            "maxLength": 10
+          },
+          "taxAmount": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "maxLength": 15,
+            "minimum": 0
+          },
+          "unitPrice": {
+            "type": [
+              "number",
+              "string"
+            ],
+            "maxLength": 15,
+            "minimum": 0
+          },
+          "productRisk": {
+            "type": "string"
+          },
+          "cityOverrideAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "cityOverrideRate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "countyOverrideAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "countyOverrideRate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "districtOverrideAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "districtOverrideRate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "stateOverrideAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "stateOverrideRate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "countryOverrideAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "countryOverrideRate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "orderAcceptanceCity": {
+            "type": "string"
+          },
+          "orderAcceptanceCounty": {
+            "type": "string"
+          },
+          "orderAcceptanceCountry": {
+            "type": "string"
+          },
+          "orderAcceptanceState": {
+            "type": "string"
+          },
+          "orderAcceptancePostalCode": {
+            "type": "string"
+          },
+          "orderOriginCity": {
+            "type": "string"
+          },
+          "orderOriginCounty": {
+            "type": "string"
+          },
+          "orderOriginCountry": {
+            "type": "string"
+          },
+          "orderOriginState": {
+            "type": "string"
+          },
+          "orderOriginPostalCode": {
+            "type": "string"
+          },
+          "shipFromCity": {
+            "type": "string"
+          },
+          "shipFromCounty": {
+            "type": "string"
+          },
+          "shipFromCountry": {
+            "type": "string"
+          },
+          "shipFromState": {
+            "type": "string"
+          },
+          "shipFromPostalCode": {
+            "type": "string"
+          },
+          "export": {
+            "type": "string"
+          },
+          "noExport": {
+            "type": "string"
+          },
+          "nationalTax": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "vatRate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "sellerRegistration": {
+            "type": "string"
+          },
+          "sellerRegistration0": {
+            "type": "string"
+          },
+          "sellerRegistration1": {
+            "type": "string"
+          },
+          "sellerRegistration2": {
+            "type": "string"
+          },
+          "sellerRegistration3": {
+            "type": "string"
+          },
+          "sellerRegistration4": {
+            "type": "string"
+          },
+          "sellerRegistration5": {
+            "type": "string"
+          },
+          "sellerRegistration6": {
+            "type": "string"
+          },
+          "sellerRegistration7": {
+            "type": "string"
+          },
+          "sellerRegistration8": {
+            "type": "string"
+          },
+          "sellerRegistration9": {
+            "type": "string"
+          },
+          "buyerRegistration": {
+            "type": "string"
+          },
+          "middlemanRegistration": {
+            "type": "string"
+          },
+          "pointOfTitleTransfer": {
+            "type": "string"
+          },
+          "giftCategory": {
+            "type": "boolean"
+          },
+          "timeCategory": {
+            "type": "string"
+          },
+          "hostHedge": {
+            "type": "string"
+          },
+          "timeHedge": {
+            "type": "string"
+          },
+          "velocityHedge": {
+            "type": "string"
+          },
+          "nonsensicalHedge": {
+            "type": "string"
+          },
+          "phoneHedge": {
+            "type": "string"
+          },
+          "obscenitiesHedge": {
+            "type": "string"
+          },
+          "unitOfMeasure": {
+            "type": "string"
+          },
+          "taxRate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "totalAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "discountAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "discountRate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "commodityCode": {
+            "type": "string"
+          },
+          "grossNetIndicator": {
+            "type": "string"
+          },
+          "taxTypeApplied": {
+            "type": "string"
+          },
+          "discountIndicator": {
+            "type": "string"
+          },
+          "alternateTaxID": {
+            "type": "string"
+          },
+          "alternateTaxAmount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "alternateTaxTypeApplied": {
+            "type": "string"
+          },
+          "alternateTaxRate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "alternateTaxType": {
+            "type": "string"
+          },
+          "localTax": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "zeroCostToCustomerIndicator": {
+            "type": "string"
+          },
+          "passengerFirstName": {
+            "type": "string"
+          },
+          "passengerLastName": {
+            "type": "string"
+          },
+          "passengerID": {
+            "type": "string"
+          },
+          "passengerStatus": {
+            "type": "string"
+          },
+          "passengerType": {
+            "type": "string"
+          },
+          "passengerEmail": {
+            "type": "string"
+          },
+          "passengerPhone": {
+            "type": "string"
+          },
+          "invoiceNumber": {
+            "type": "string"
+          },
+          "productDescription": {
+            "type": "string"
+          },
+          "taxStatusIndicator": {
+            "type": "string"
+          },
+          "discountManagementIndicator": {
+            "type": "string"
+          },
+          "typeOfSupply": {
+            "type": "string"
+          },
+          "sign": {
+            "type": "string"
+          },
+          "unitTaxAmount": {
+            "type": "string"
+          },
+          "weightAmount": {
+            "type": "string"
+          },
+          "weightID": {
+            "type": "string"
+          },
+          "weightUnitMeasurement": {
+            "type": "string"
+          },
+          "otherTax_1_type": {
+            "type": "string"
+          },
+          "otherTax_1_amount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_1_rate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_1_statusIndicator": {
+            "type": "string"
+          },
+          "otherTax_2_type": {
+            "type": "string"
+          },
+          "otherTax_2_amount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_2_rate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_2_statusIndicator": {
+            "type": "string"
+          },
+          "otherTax_3_type": {
+            "type": "string"
+          },
+          "otherTax_3_amount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_3_rate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_3_statusIndicator": {
+            "type": "string"
+          },
+          "otherTax_4_type": {
+            "type": "string"
+          },
+          "otherTax_4_amount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_4_rate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_4_statusIndicator": {
+            "type": "string"
+          },
+          "otherTax_5_type": {
+            "type": "string"
+          },
+          "otherTax_5_amount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_5_rate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_5_statusIndicator": {
+            "type": "string"
+          },
+          "otherTax_6_type": {
+            "type": "string"
+          },
+          "otherTax_6_amount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_6_rate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_6_statusIndicator": {
+            "type": "string"
+          },
+          "otherTax_7_type": {
+            "type": "string"
+          },
+          "otherTax_7_amount": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_7_rate": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "otherTax_7_statusIndicator": {
+            "type": "string"
+          },
+          "referenceData_1_number": {
+            "type": "string"
+          },
+          "referenceData_1_code": {
+            "type": "string"
+          },
+          "referenceData_2_number": {
+            "type": "string"
+          },
+          "referenceData_2_code": {
+            "type": "string"
+          },
+          "referenceData_3_number": {
+            "type": "string"
+          },
+          "referenceData_3_code": {
+            "type": "string"
+          },
+          "referenceData_4_number": {
+            "type": "string"
+          },
+          "referenceData_4_code": {
+            "type": "string"
+          },
+          "referenceData_5_number": {
+            "type": "string"
+          },
+          "referenceData_5_code": {
+            "type": "string"
+          },
+          "referenceData_6_number": {
+            "type": "string"
+          },
+          "referenceData_6_code": {
+            "type": "string"
+          },
+          "referenceData_7_number": {
+            "type": "string"
+          },
+          "referenceData_7_code": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
       }
-    },
-    "required": [
-      "ccCaptureService",
-      "purchaseTotals"
-    ],
-    "definitions": {}
+    }
   },
   "tags": [
     "CyberSource",
