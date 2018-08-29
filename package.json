@@ -4,6 +4,7 @@
   "description": "CyberSource source repo for channel development",
   "main": "CyberSource.js",
   "scripts": {
+    "sdktests": "npx nchannel-sdk test",
     "test": "npx nchannel-sdk test"
   },
   "repository": {
