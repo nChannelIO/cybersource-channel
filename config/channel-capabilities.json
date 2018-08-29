@@ -1,0 +1,17 @@
+{
+  "channelRegistry": {
+    "name": "CyberSource",
+    "actions": {
+      "putPaymentCapture": {
+        "capabilities": {
+          "insertPaymentCapture": true
+        },
+        "remoteID": "id",
+        "businessReference": [
+          "businesssReference"
+        ]
+      }
+    }
+  },
+  "interface": "Promise"
+}

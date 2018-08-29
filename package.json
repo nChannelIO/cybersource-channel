@@ -1,0 +1,35 @@
+{
+  "name": "@nchannelio/cybersource-channel",
+  "version": "1.0.0",
+  "description": "CyberSource source repo for channel development",
+  "main": "CyberSource.js",
+  "scripts": {
+    "test": "npx nchannel-sdk test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nChannelIO/cybersource-channel.git"
+  },
+  "keywords": [
+    "CyberSource",
+    "nChannel",
+    "SDK"
+  ],
+  "author": "developers@nchannel.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nChannelIO/cybersource-channel/issues"
+  },
+  "homepage": "https://github.com/nChannelIO/cybersource-channel#readme",
+  "dependencies": {
+    "@nchannel/endpoint-sdk": "^1.0.2",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "strong-soap": "^1.12.1"
+  },
+  "files": [
+    "config",
+    "functions",
+    "schema"
+  ]
+}
