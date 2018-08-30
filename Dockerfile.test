@@ -1,0 +1,15 @@
+FROM node:9-slim
+LABEL maintainer="developers@nchannel.com"
+
+# Create app directory
+RUN mkdir -p /channel
+WORKDIR /channel
+
+COPY . /channel
+
+RUN chown -R node:node /channel
+
+USER node
+RUN npm install
+
+CMD [ "npx", "nchannel-sdk", "test" ]

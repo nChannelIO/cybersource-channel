@@ -13,7 +13,7 @@
   },
   "docs": [
     {
-      "functionName": "insertPaymentCapture",
+      "functionName": "skip-insertPaymentCapture",
       "tests": [
         {
           "statusCode": 201,
