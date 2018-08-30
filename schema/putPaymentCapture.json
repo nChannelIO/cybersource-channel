@@ -5,12 +5,32 @@
     "title": "putPaymentCapture",
     "type": "object",
     "properties": {
-      "requestMessage": {
-        "$ref": "#/definitions/requestMessage"
+      "merchantID": {
+        "type": "string",
+        "maxLength": 30
+      },
+      "merchantReferenceCode": {
+        "type": "string"
+      },
+      "ccCaptureService": {
+        "$ref": "#/definitions/ccCaptureService"
+      },
+      "purchaseTotals": {
+        "$ref": "#/definitions/purchaseTotals"
+      },
+      "item": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/item"
+        },
+        "minItems": 1
       }
     },
     "required": [
-      "requestMessage"
+      "merchantID",
+      "merchantReferenceCode",
+      "ccCaptureService",
+      "purchaseTotals"
     ],
     "definitions": {
       "requestMessage": {

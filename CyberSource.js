@@ -36,9 +36,18 @@ class CyberSource extends Channel {
     });
   }
 
+  addRequestWrapper(doc) {
+    doc.$attributes = {
+      xmlns: this.channelProfile.channelSettingsValues.requestNamespace
+    };
+    return {
+      requestMessage: doc
+    }
+  }
+
   runTransaction(doc) {
     return this.createClient().then(client => {
-      return client.runTransaction(doc).then(({result, rawResponse, soapHeader}) => {
+      return client.runTransaction(this.addRequestWrapper(doc)).then(({result, rawResponse, soapHeader}) => {
         if (result && result.decision === 'ACCEPT' && result.reasonCode === 100) {
           return {
             statusCode: 201,
