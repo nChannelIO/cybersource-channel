@@ -1,4 +1,5 @@
 {
+  "sdkVersion": "1",
   "name": "CyberSource",
   "description": "CyberSource SDK Channel",
   "channelType": "API",
@@ -12,9 +13,28 @@
       "channelVerb": "PUT",
       "channelNoun": "PAYMENTCAPTURE",
       "configDef": {
-        "configModel": {},
+        "configModel": {
+          "required": [
+            "canInsertPaymentCaptureFlag",
+            "doInsertPaymentCaptureFlag"
+          ],
+          "properties": {
+            "canInsertPaymentCaptureFlag": {
+              "type": "boolean",
+              "title": "PUT PaymentCapture, canInsertPaymentCaptureFlag"
+            },
+            "doInsertPaymentCaptureFlag": {
+              "type": "boolean",
+              "title": "PUT PaymentCapture, doInsertPaymentCaptureFlag"
+            }
+          },
+          "type": "object"
+        },
         "configView": [],
-        "configValues": {}
+        "configValues": {
+          "canInsertPaymentCaptureFlag": true,
+          "doInsertPaymentCaptureFlag": true
+        }
       },
       "documentDef": {
         "remoteID": "requestID",
@@ -61,15 +81,20 @@
         "properties": {
           "wsdlUri": {
             "type": "string"
+          },
+          "requestNamespace": {
+            "type": "string"
           }
         },
         "required": [
-          "wsdlUri"
+          "wsdlUri",
+          "requestNamespace"
         ]
       },
       "configView": [],
       "configValues": {
-        "wsdlUri": "https://ics2wstesta.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.149.wsdl"
+        "wsdlUri": "https://ics2wstesta.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.149.wsdl",
+        "requestNamespace": "urn:schemas-cybersource-com:transaction-data-1.149"
       }
     }
   }
