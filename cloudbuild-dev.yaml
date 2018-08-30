@@ -1,11 +1,8 @@
 steps:
 
 # Build and run unit tests
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['install' ]
-
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'sdktests' ]
+- name: 'docker/compose:1.18.0'
+  args: ['-f', 'Docker-compose-test.yml', 'run', 'sut' ]
 
 # npm auth
 - name: 'gcr.io/cloud-builders/npm'
