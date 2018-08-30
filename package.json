@@ -1,5 +1,5 @@
 {
-  "name": "@nchannelio/cybersource-channel",
+  "name": "@nchannel/cybersource-channel",
   "version": "1.0.0",
   "description": "CyberSource source repo for channel development",
   "main": "CyberSource.js",
