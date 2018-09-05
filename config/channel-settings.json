@@ -100,6 +100,7 @@
         "wsdlUri"
       ],
       "configValues": {
+        "wsdlUri": "https://ics2wstesta.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.149.wsdl",
         "requestNamespace": "urn:schemas-cybersource-com:transaction-data-1.149"
       }
     }
