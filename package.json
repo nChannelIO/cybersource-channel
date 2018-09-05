@@ -1,6 +1,6 @@
 {
   "name": "@nchannel/cybersource-channel",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "CyberSource source repo for channel development",
   "main": "CyberSource.js",
   "scripts": {
